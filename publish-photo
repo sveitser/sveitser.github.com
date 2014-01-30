@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# usage: publish-photo title filename.jpg
+#
+
+CURDIR=$PWD
+filename=$(basename "$2")
+extension="${filename##*.}"
+name="${filename%.*}"
+smallsize=636
+bigsize=1920
+
+cd ~/dev/sveitser.github.com
+git pull
+
+PAT="Creating new post: "
+postname=`rake post title=$1 | sed -n "/$PAT/s/$PAT//p"`
+mkdir -p images
+# cp $2 images/$filename
+smallfilename=${name}_small.$extension
+convert -resize ${smallsize}x${smallsize} -quality 92 $2 images/$smallfilename
+convert -resize ${bigsize}x${bigsize} -quality 92 $2 images/$filename
+echo "[![Where is the image?][2]][1]" >> $postname
+echo "[1]: {{ BASE_PATH }}/images/$filename" >> $postname
+echo "[2]: {{ BASE_PATH }}/images/$smallfilename" >> $postname
+
+# stage and commit the new post
+git add images/{$filename,$smallfilename} $postname
+git commit -m "add content" 
+git push
+
+cd $CURDIR
