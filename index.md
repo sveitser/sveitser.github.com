@@ -1,6 +1,6 @@
 ---
 layout: page
-title: random rambling
+title: mathis' stuff
 ---
 {% include JB/setup %}
 <div>
