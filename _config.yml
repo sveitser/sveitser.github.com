@@ -81,9 +81,9 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : mathisantony
     livefyre :
-      site_id : 123
+      site_id : 
     intensedebate :
       account : 123abc
     facebook :
