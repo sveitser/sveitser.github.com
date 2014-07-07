@@ -30,6 +30,5 @@ The ```fontpatcher``` utility in ```vim-powerline``` allows you to patch your ow
 [dina](http://www.donationcoder.com/Software/Jibz/Dina/) font but for some
 reason I can't get it to work with ```urxvt``` after patching it for Powerline :-/ Still looks pretty neat with Menlo:
 
-[![Where is the image?][1]]
-[1]: {{ BASE_PATH }}/images/zsh_powerline.png
+![](images/zsh_powerline.png)
 
